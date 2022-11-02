@@ -1,0 +1,17 @@
+/* Amatica SC font */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+#brand-banner {
+  font-family: 'Amatic SC', cursive;
+  background-color: #f09e9e;
+}
+
+.nav-item {
+  font-size: 1.25rem;
+  transition: 0.1s;
+}
+
+.nav-item:hover a {
+  color: white;
+  transition: 0.1s;
+}
