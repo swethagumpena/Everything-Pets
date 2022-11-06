@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "title": "Pet type",
+            "data": [
+                {
+                    "id": 1,
+                    "value": "Dog"
+                },
+                {
+                    "id": 2,
+                    "value": "Cat"
+                },
+                {
+                    "id": 3,
+                    "value": "Bird"
+                },
+                {
+                    "id": 4,
+                    "value": "Fish"
+                }
+            ]
+        },
+        {
+            "title": "Services",
+            "data": [
+                {
+                    "id": 1,
+                    "value": "Food"
+                },
+                {
+                    "id": 2,
+                    "value": "Grooming"
+                },
+                {
+                    "id": 3,
+                    "value": "Medicines"
+                },
+                {
+                    "id": 4,
+                    "value": "Toys"
+                },
+                {
+                    "id": 4,
+                    "value": "Activities"
+                }
+            ]
+        },
+        {
+            "title": "Location of service",
+            "data": [
+                {
+                    "id": 1,
+                    "value": "In-home"
+                },
+                {
+                    "id": 2,
+                    "value": "Outdoors"
+                }
+               
+            ]
+        }
+    ]
+}
