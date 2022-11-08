@@ -19,3 +19,7 @@
 .right-pane {
   background-color: rgba(227, 227, 227, 0.89);
 }
+
+p {
+  margin-bottom: 0;
+}
