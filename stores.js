@@ -35,6 +35,7 @@ $(function () {
       var card = `<div
             style="background-color: white; padding: 8px; width: 70%"
             class="d-flex my-1 align-items-center"
+            onclick= "onClick()"
           >
             <img src=${store.image} style="height: 220px; width: 220px" />
             <div class="mx-5" style="width: 60%">
@@ -80,6 +81,43 @@ $(function () {
 })
 // TODO - line 46 - 49 to be removed
 // TODO - on clicking heart should add to Favourites
+
+
+function onClick() {
+
+  $.getJSON('data/stores.json', function ({ data }) {
+    $.each(data, function (i, store) {
+
+      //console.log("something");
+
+     var modal =  ` 
+     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">${store.name}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+
+
+
+    })
+  })
+
+
+}
+
 
 function signInOut() {
   var signInButton = document.getElementById("sign-in");
