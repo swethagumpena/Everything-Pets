@@ -1,8 +1,8 @@
 /* Amatica SC font */
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
 #brand-banner {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   background-color: #f09e9e;
 }
 
@@ -22,4 +22,75 @@
 
 p {
   margin-bottom: 0;
+}
+
+.reminder {
+  background-color: #fff;
+  transition: 0.1s;
+}
+
+.reminder:hover {
+  background-color: #f09e9e6e;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.color-calendar {
+  width: 100%;
+  height: 30rem;
+  justify-content: space-around;
+  box-shadow: none !important;
+  border: 1px solid #ddd !important;
+}
+
+.calendar__header {
+  justify-content: center;
+}
+
+.calendar__weekdays,
+.calendar__days {
+  justify-content: space-around;
+}
+
+.calendar__day-box {
+  background-color: #f09e9e !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+
+.color-calendar.basic
+  .calendar__days
+  .calendar__day-text:hover
+  ~ .calendar__day-box {
+  background-color: #f09e9e6e !important;
+  opacity: 1 !important;
+}
+
+#reminders {
+  height: 26rem;
+  overflow-y: scroll;
+}
+
+/* Scrollbar styles */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
 }

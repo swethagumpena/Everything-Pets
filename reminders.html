@@ -1,86 +1,230 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page title -->
+    <title>Reminders | Everything Pets</title>
+    <link rel="icon" type="image/x-icon" href="./extras/favicon.ico" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Page title -->
-  <title>Reminders | Everything Pets</title>
-  <link rel="icon" type="image/x-icon" href="./extras/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-basic.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="reminders.js"></script>
-
-</head>
-
-<body style="overflow-x: hidden;">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">
-        <img src="./images/project icon 1.png" style="height: 3rem;" class="ms-3" alt="" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item px-2">
-            <a class="nav-link" aria-current="page" href="./stores.html">
-              Stores
+  <body class="bg-light" style="overflow-x: hidden;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img
+            src="./images/project icon 1.png"
+            style="height: 3rem;"
+            class="ms-3"
+            alt=""
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item px-2">
+              <a class="nav-link" aria-current="page" href="./stores.html">
+                Stores
+              </a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="./boarding.html">
+                Boarding
+              </a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link active text-white" href="#">Reminders</a>
+            </li>
+          </ul>
+          <div class="d-flex mb-2 mb-lg-0">
+            <a href="./emergency.html" class="btn btn-danger me-3">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              Pet Emergency
             </a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link" href="./boarding.html">
-              Boarding
-            </a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link active text-white" href="#">Reminders</a>
-          </li>
-        </ul>
-        <div class="d-flex mb-2 mb-lg-0">
-          <a href="./emergency.html" class="btn btn-danger me-3">
-            <i class="bi bi-exclamation-triangle me-2"></i>
-            Pet Emergency
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Reminders Page code here -->
+
+    <!-- <div class="row">
+      <div class="fs-2 d-flex justify-content-center">
+        Please Log in to Continue
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <a
+          class="btn btn-outline-dark"
+          id="google-signin"
+          role="button"
+          onclick="signInOut()"
+          style="text-transform: none;"
+        >
+          <img
+            width="20px"
+            style="margin-bottom: 3px; margin-right: 5px;"
+            alt="Google sign-in"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+          />
+          Login with Google
+        </a>
+      </div>
+    </div> -->
+
+    <div class="container my-5">
+      <div class="row">
+        <h3 class="mb-4">Upcoming Reminders</h3>
+        <div class="col-lg-4">
+          <div id="reminders" class="pe-3 mb-4">
+            <div class="reminder card shadow-sm mb-3">
+              <div class="card-body">
+                <h4 class="card-title mb-3">
+                  Freya's Vet Visit
+                </h4>
+                <p class="card-text mb-2">
+                  <span class="reminder-date me-5">
+                    <i class="bi bi-calendar-week me-2"></i>
+                    21 Oct 2022
+                  </span>
+                  <span class="reminder-time">
+                    <i class="bi bi-clock me-2"></i>
+                    14:00
+                  </span>
+                </p>
+                <p>
+                  <span class="reminder-location">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    1203 W Taylor St, Chicago, IL - 60607
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="reminder card shadow-sm mb-3">
+              <div class="card-body">
+                <h4 class="card-title mb-3">
+                  Freya's Vet Visit
+                </h4>
+                <p class="card-text mb-2">
+                  <span class="reminder-date me-5">
+                    <i class="bi bi-calendar-week me-2"></i>
+                    21 Oct 2022
+                  </span>
+                  <span class="reminder-time">
+                    <i class="bi bi-clock me-2"></i>
+                    14:00
+                  </span>
+                </p>
+                <p>
+                  <span class="reminder-location">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    1203 W Taylor St, Chicago, IL - 60607
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="reminder card shadow-sm mb-3">
+              <div class="card-body">
+                <h4 class="card-title mb-3">
+                  Freya's Vet Visit
+                </h4>
+                <p class="card-text mb-2">
+                  <span class="reminder-date me-5">
+                    <i class="bi bi-calendar-week me-2"></i>
+                    21 Oct 2022
+                  </span>
+                  <span class="reminder-time">
+                    <i class="bi bi-clock me-2"></i>
+                    14:00
+                  </span>
+                </p>
+                <p>
+                  <span class="reminder-location">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    1203 W Taylor St, Chicago, IL - 60607
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="reminder card shadow-sm mb-3">
+              <div class="card-body">
+                <h4 class="card-title mb-3">
+                  Freya's Vet Visit
+                </h4>
+                <p class="card-text mb-2">
+                  <span class="reminder-date me-5">
+                    <i class="bi bi-calendar-week me-2"></i>
+                    21 Oct 2022
+                  </span>
+                  <span class="reminder-time">
+                    <i class="bi bi-clock me-2"></i>
+                    14:00
+                  </span>
+                </p>
+                <p>
+                  <span class="reminder-location">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    1203 W Taylor St, Chicago, IL - 60607
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <a class="btn btn-success w-100">
+            <i class="bi bi-plus-lg me-2"></i>
+            Add Reminder
           </a>
+        </div>
+        <div class="col-lg-8">
+          <div id="calendar"></div>
         </div>
       </div>
     </div>
-  </nav>
-
-  <!-- Reminders Page code here -->
-
-  <div class="row">
-    <div class="fs-2 d-flex justify-content-center">
-      Please Log in to Continue
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="d-flex justify-content-center">
-      <a class="btn btn-outline-dark" id="google-signin" role="button" onclick="signInOut()" style="text-transform:none">
-        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-        Login with Google
-      </a>
-    </div>
-  </div>
-
-
-  <!-- Bootstrap JS bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-</body>
-
+    <!-- Bootstrap JS bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.js"></script>
+    <script src="./js/reminders.js"></script>
+  </body>
 </html>
