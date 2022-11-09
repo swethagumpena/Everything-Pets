@@ -24,17 +24,17 @@
 
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="stores.js"></script>
+    <script src="./js/stores.js"></script>
   </head>
 
-  <body style="overflow-x: hidden">
+  <body style="overflow-x: hidden;">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img
             src="./images/project icon 1.png"
-            style="height: 3rem"
+            style="height: 3rem;"
             class="ms-3"
             alt=""
           />
@@ -68,7 +68,13 @@
               <a class="nav-link" href="./reminders.html">Reminders</a>
             </li>
           </ul>
-          <div id="sign-in" class="btn btn-outline-light me-4" data-mdb-ripple-color="dark" onclick="signInOut()">Sign in
+          <div
+            id="sign-in"
+            class="btn btn-outline-light me-4"
+            data-mdb-ripple-color="dark"
+            onclick="signInOut()"
+          >
+            Sign in
           </div>
           <div class="d-flex mb-2 mb-lg-0">
             <a href="./emergency.html" class="btn btn-danger me-3">
@@ -87,12 +93,15 @@
         <div id="filter-data"></div>
       </div>
       <div class="col-md-10 right-pane p-4">
-        <h2 class="mb-3">Showing stores around <u>Chicago 60607</u></h2>
+        <h2 class="mb-3">
+          Showing stores around
+          <u>Chicago 60607</u>
+        </h2>
         <!-- TODO: change location  -->
         <div
           id="stores-list"
           class="d-flex flex-column align-items-center"
-          style="overflow-y: scroll; max-height: 100%"
+          style="overflow-y: scroll; max-height: 100%;"
         ></div>
       </div>
     </div>
