@@ -69,8 +69,10 @@ $(function () {
                 <p>${store.petTypes.join(', ')}</p>
               </div>
             </div>
-            <div class="mx-4"><i class="bi bi-heart" style="font-size: 30px"></i></div>
-          </div>`
+          </div>
+          <div class="mx-4"><i class="bi bi-heart" style="font-size: 30px" type="button"></i></div>
+          </div>
+          `
       for (let i = 0; i < store.rating; i++) {
         // TODO: not working
         $(`#rating-${store.id}`).append("<i class='bi bi-star-fill'></i>")
@@ -90,7 +92,7 @@ function onClick() {
 
       //console.log("something");
 
-     var modal =  ` 
+      var modal = ` 
      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
