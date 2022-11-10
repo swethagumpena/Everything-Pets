@@ -32,47 +32,30 @@ $(function () {
   $.getJSON('data/stores.json', function ({ data }) {
     var card = ``
     $.each(data, function (i, store) {
-      var card = `<div
-            style="background-color: white; padding: 8px; width: 70%"
-            class="d-flex my-1 align-items-center"
-            onclick= "onClick()"
-          >
-            <img src=${store.image} style="height: 220px; width: 220px" />
-            <div class="mx-5" style="width: 60%">
-              <div class="d-flex align-items-center justify-content-between">
-                <p style="font-size: 32px; font-weight: 700; margin-bottom: 0">
-                  ${store.name}
-                </p>
-                <div id="rating-${store.id}">
-                <i class='bi bi-star-fill'></i>
-                <i class='bi bi-star-fill'></i>
-                <i class='bi bi-star-fill'></i>
-                <i class='bi bi-star-fill'></i>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-4">
-                <i class="bi bi-geo-fill"></i>
-                <p class="mx-3">${store.address}</p>
-              </div>
-              <div class="d-flex align-items-center my-2">
-                <i class="bi bi-clock"></i>
-                <p class="mx-3">${store.status}</p>
-                <p class="mx-3">|</p>
-                <p class="mx-3">${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}</p>
-              </div>
-              <div class="d-flex align-items-center my-2">
-                <p style="font-weight: 700;">Specialize in:&nbsp</p>
-                <p>${store.services.join(', ')}</p>
-              </div>
-              <div class="d-flex align-items-center mt-2">
-              <p style="font-weight: 700;">For:&nbsp</p>
-                <p>${store.petTypes.join(', ')}</p>
-              </div>
-            </div>
-          </div>
-          <div class="mx-4"><i class="bi bi-heart" style="font-size: 30px" type="button"></i></div>
-          </div>
-          `
+      var card = `<div class="col-sm-3 card d-flex align-items-center">
+      <img class="card-img-top" src=${store.image} alt="Card image cap">
+      <div class="card-body align-self-start">
+        <p style="font-size: 26px; font-weight: 700; margin-bottom: 0;">${store.name}</p>
+        <div class="d-flex align-items-center">
+            <i class="bi bi-geo-fill"></i>
+            <p class="mx-3">${store.address}</p>
+        </div>
+        <div class="d-flex align-items-center my-2">
+            <i class="bi bi-clock"></i>
+            <p class="mx-3">${store.status}</p>
+            <p class="mx-3">|</p>
+            <p class="mx-3">${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}</p>
+        </div>
+        <div class="d-flex align-items-center my-2">
+            <p style="font-weight: 700;">Specialize in:&nbsp</p>
+            <p>${store.services.join(', ')}</p>
+        </div>
+        <div class="d-flex align-items-center mt-2">
+            <p style="font-weight: 700;">For:&nbsp</p>
+            <p>${store.petTypes.join(', ')}</p>
+        </div>
+      </div>
+    </div>`
       for (let i = 0; i < store.rating; i++) {
         // TODO: not working
         $(`#rating-${store.id}`).append("<i class='bi bi-star-fill'></i>")
@@ -81,17 +64,10 @@ $(function () {
     })
   })
 })
-// TODO - line 46 - 49 to be removed
-// TODO - on clicking heart should add to Favourites
-
 
 function onClick() {
-
   $.getJSON('data/stores.json', function ({ data }) {
     $.each(data, function (i, store) {
-
-      //console.log("something");
-
       var modal = ` 
      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -111,15 +87,9 @@ function onClick() {
       </div>
     </div>
   `
-
-
-
     })
   })
-
-
 }
-
 
 function signInOut() {
   var signInButton = document.getElementById("sign-in");

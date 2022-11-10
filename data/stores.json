@@ -37,6 +37,42 @@
             "petTypes": [
                 "Dog"
             ]
+        },
+        {
+            "id": 2,
+            "name": "Petco",
+            "image": "./images/petStores/petStore1.png",
+            "rating": 5,
+            "address": "710 S Lytle St, Chicago IL, 60607",
+            "status": "Closed",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "services": [
+                "Grooming",
+                "Food",
+                "Activities"
+            ],
+            "petTypes": [
+                "Dog"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Petco",
+            "image": "./images/petStores/petStore2.png",
+            "rating": 5,
+            "address": "710 S Lytle St, Chicago IL, 60607",
+            "status": "Closed",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "services": [
+                "Grooming",
+                "Food",
+                "Activities"
+            ],
+            "petTypes": [
+                "Dog"
+            ]
         }
     ]
 }

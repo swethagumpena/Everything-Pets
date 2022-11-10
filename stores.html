@@ -27,14 +27,14 @@
     <script src="./js/stores.js"></script>
   </head>
 
-  <body style="overflow-x: hidden;">
+  <body style="overflow-x: hidden">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img
             src="./images/project icon 1.png"
-            style="height: 3rem;"
+            style="height: 3rem"
             class="ms-3"
             alt=""
           />
@@ -87,7 +87,7 @@
     </nav>
 
     <!-- Stores Page code here -->
-    <div class="d-flex vh-100">
+    <div class="d-flex">
       <div class="col-md-2 p-4" id="filter-panel">
         <h3>Filters</h3>
         <div id="filter-data"></div>
@@ -98,11 +98,7 @@
           <u>Chicago 60607</u>
         </h2>
         <!-- TODO: change location  -->
-        <div
-          id="stores-list"
-          class="d-flex flex-column align-items-center"
-          style="overflow-y: scroll; max-height: 100%;"
-        ></div>
+        <div id="stores-list" class="row d-flex justify-content-between"></div>
       </div>
     </div>
     <!-- Bootstrap JS bundle -->
