@@ -31,37 +31,42 @@ $(function () {
 $(function () {
   $.getJSON('data/stores.json', function ({ data }) {
     var card = ``
-    // $.each(data, function (i, store) {
-    //   var card = `<div class="col-sm-3 card d-flex align-items-center">
-    //   <img class="card-img-top" src=${store.image} alt="Card image cap">
-    //   <div class="card-body align-self-start">
-    //     <p style="font-size: 26px; font-weight: 700; margin-bottom: 0;">${store.name}</p>
-    //     <div class="d-flex align-items-center">
-    //         <i class="bi bi-geo-fill"></i>
-    //         <p class="mx-3">${store.address}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center my-2">
-    //         <i class="bi bi-clock"></i>
-    //         <p class="mx-3">${store.status}</p>
-    //         <p class="mx-3">|</p>
-    //         <p class="mx-3">${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center my-2">
-    //         <p style="font-weight: 700;">Specialize in:&nbsp</p>
-    //         <p>${store.services.join(', ')}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center mt-2">
-    //         <p style="font-weight: 700;">For:&nbsp</p>
-    //         <p>${store.petTypes.join(', ')}</p>
-    //     </div>
-    //   </div>
-    // </div>`
-    //   for (let i = 0; i < store.rating; i++) {
-    //     // TODO: not working
-    //     $(`#rating-${store.id}`).append("<i class='bi bi-star-fill'></i>")
-    //   }
-    //   $("#stores-list").append(card)
-    // })
+    $.each(data, function (i, store) {
+      var card = `<div class="col-lg-3 mb-5">
+    <div class="card shadow-sm">
+      <img
+        src=${store.image}
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">${store.name}</h5>
+        <p class="card-text">
+          <p class="store-address mb-2">
+            <i class="bi bi-geo-alt me-2"></i>
+            ${store.address}
+          </p>
+        <p class="store-status  mb-2">
+            <i class="bi bi-clock me-2"></i>
+            ${store.status}  |   ${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}
+          </p>
+        <p class="store-services  mb-2">
+            <span style="font-weight: 700;">Services:&nbsp</span>
+            ${store.services.join(', ')}
+        </p>
+           <div class="d-flex align-items-center mt-2">
+           <span style="font-weight: 700;">For:&nbsp</span>
+               <p>${store.petTypes.join(', ')}</p>
+           </div>
+        </p>
+      </div>
+    </div>
+  </div>`
+      for (let i = 0; i < store.rating; i++) {
+        // TODO: not working
+        $(`#rating-${store.id}`).append("<i class='bi bi-star-fill'></i>")
+      }
+      $("#stores-list").append(card)
+    })
   })
 })
 

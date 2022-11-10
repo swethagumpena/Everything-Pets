@@ -5,15 +5,14 @@
             "name": "Olive Pet Store",
             "image": "./images/petStores/petStore1.png",
             "rating": 4,
-            "address": "1203 W Taylor St, Chicago IL, 60607",
+            "address": "123 W Taylor St, Chicago IL, 60607",
             "status": "Open",
             "openingTime": "06:00",
             "closingTime": "21:00",
             "services": [
                 "Grooming",
                 "Food",
-                "Activities",
-                "Toys"
+                "Activities"
             ],
             "petTypes": [
                 "Dog",
@@ -31,8 +30,7 @@
             "closingTime": "21:00",
             "services": [
                 "Grooming",
-                "Food",
-                "Activities"
+                "Food"
             ],
             "petTypes": [
                 "Dog"
@@ -49,8 +47,7 @@
             "closingTime": "21:00",
             "services": [
                 "Grooming",
-                "Food",
-                "Activities"
+                "Food"
             ],
             "petTypes": [
                 "Dog"
@@ -67,7 +64,6 @@
             "closingTime": "21:00",
             "services": [
                 "Grooming",
-                "Food",
                 "Activities"
             ],
             "petTypes": [
