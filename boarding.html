@@ -100,12 +100,6 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="boardingName">Boarding Name</h5>
-                <div
-                    class="py-2"
-                    id="boardingStars"
-                    style="display: inline-block;"
-                  ></div>
                 <button
                   type="button"
                   class="btn-close"
@@ -115,11 +109,25 @@
               </div>
               <div class="modal-body row d-flex">
                 <div class="col-lg-6">
+                  <h5
+                    class="modal-title me-2 mb-3"
+                    id="boardingName"
+                    style="display: inline-block;"
+                  >
+                    Boarding Name
+                  </h5>
+                  <div
+                    class="py-2"
+                    id="boardingStars"
+                    style="display: inline-block;"
+                  ></div>
                   <div class="boarding-address mb-2 d-flex align-items-center">
                     <i class="bi bi-geo-alt me-2"></i>
                     <p id="boardingAddress">Boarding Address</p>
                   </div>
-                  <div class="d-flex boarding-status mb-2 align-items-baseline">
+                  <div
+                    class="d-flex boarding-status mb-2 align-items-baseline mb-3"
+                  >
                     <div class="d-flex align-items-center">
                       <i class="bi bi-clock me-2"></i>
                       <p id="boardingStatus">Status</p>
@@ -135,7 +143,7 @@
                     &nbsp;
                     <p id="boardingLocationOfService">Location</p>
                   </div>
-                  <div class="boarding-for d-flex mb-2">
+                  <div class="boarding-for d-flex mb-4">
                     <p class="fw-bold">For:</p>
                     &nbsp;
                     <p id="boardingPets">Pets</p>
@@ -150,22 +158,11 @@
                       <a id="boardingSite" href="www.example.com">Website</a>
                     </p>
                   </div>
-                  <div class="form-outline">
-                    <label class="form-label" for="textAreaExample">
-                      My notes
-                    </label>
-                    <i class="bi bi-pencil-square"></i>
-                    <textarea
-                      class="form-control"
-                      id="textAreaExample1"
-                      rows="2"
-                    ></textarea>
-                  </div>
                 </div>
                 <div class="col-lg-6">
                   <div
                     id="carouselExampleIndicators"
-                    class="carousel slide mb-2"
+                    class="carousel slide mb-3"
                     data-bs-ride="carousel"
                   >
                     <div class="carousel-indicators">
@@ -243,6 +240,17 @@
                       ></span>
                       <span class="visually-hidden">Next</span>
                     </button>
+                  </div>
+                  <div class="form-outline">
+                    <label class="form-label" for="textAreaExample">
+                      My notes
+                    </label>
+                    <i class="bi bi-pencil-square"></i>
+                    <textarea
+                      class="form-control"
+                      id="textAreaExample1"
+                      rows="2"
+                    ></textarea>
                   </div>
                 </div>
               </div>

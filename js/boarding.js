@@ -156,7 +156,7 @@ function displayBoardings() {
               class="card-img-top"
               style="height:16rem"
             />
-            <div class="card-body" style="height:12rem">
+            <div class="card-body" style="height:14rem">
             <div class="row">
               <div class="col-lg-10">
               <h5 class="card-title">${boarding.name}</h5>
