@@ -45,20 +45,6 @@
                     "value": "Activities"
                 }
             ]
-        },
-        {
-            "title": "Location of service",
-            "data": [
-                {
-                    "id": 1,
-                    "value": "In-home"
-                },
-                {
-                    "id": 2,
-                    "value": "Outdoors"
-                }
-               
-            ]
         }
     ]
 }
