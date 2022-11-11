@@ -98,8 +98,8 @@ $(function () {
         $(checkBox).attr("type", "checkbox");
         $(checkBox).attr("value", categoryOption.value);
         $(checkBox).css("margin-right", "10px");
-        $(checkBox).attr("id", 'filter-' + categoryOption.value);
-        $(checkBox).attr("onClick", `onFilterOptionClick('${categoryOption.value}')`);
+        $(checkBox).attr("id", 'boarding-filter-' + categoryOption.value);
+        $(checkBox).attr("onClick", `onBoardingFilterOptionClick('${categoryOption.value}')`);
 
         var label = document.createElement("label");
         $(label).attr("for", categoryOption.value);
@@ -114,20 +114,20 @@ $(function () {
   });
 });
 
-var selectedOptions = []
+var selectedBoardingOptions = []
 
-function onFilterOptionClick(option) {
-  if ($(`#filter-${option}`).is(':checked')) {
-    selectedOptions.push(option)
+function onBoardingFilterOptionClick(option) {
+  if ($(`#boarding-filter-${option}`).is(':checked')) {
+    selectedBoardingOptions.push(option)
   } else {
-    var index = selectedOptions.indexOf(option);
+    var index = selectedBoardingOptions.indexOf(option);
     if (index !== -1) {
-      selectedOptions.splice(index, 1);
+      selectedBoardingOptions.splice(index, 1);
     }
   }
   requiredBoardings = []
   boardingsData.forEach((boarding) => {
-    if (boarding.petTypes.some(r => selectedOptions.indexOf(r) >= 0)) {
+    if (boarding.petTypes.some(r => selectedBoardingOptions.indexOf(r) >= 0)) {
       requiredBoardings.push(boarding)
     }
   })
@@ -135,7 +135,7 @@ function onFilterOptionClick(option) {
 }
 
 function displayBoardings() {
-  $("boardings-list").empty()
+  $("#boardings-list").empty()
   if (!requiredBoardings.length) requiredBoardings = boardingsData
   requiredBoardings.forEach((boarding) => {
     var stars = ``;
