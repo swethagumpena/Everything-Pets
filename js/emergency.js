@@ -20,9 +20,9 @@ $(function () {
             var card = document.createElement("div");
             card.className = "card shadow-sm w-100 p-3 mb-4";
             card.style = "background-color: rgba(255, 175, 175, 0.0);";
-            var inner = 
-            `
-            <div class="card-body p-1">
+            var inner =
+                `
+            <div class="hospital-card card-body p-1">
                 <div class="card-text container">
                     <div class="row">
                         <div class="col-md-9 no-float">
@@ -52,7 +52,7 @@ $(function () {
                 // Remove the highlight from the other cards
                 $(card).siblings().css("background-color", "rgba(255, 175, 175, 0.0)");
                 // Put the information of the selected hospital into the right panel
-                
+
                 // Create new image element for the hospital
                 var img = document.createElement("img");
                 img.className = "card-img-top";
@@ -63,7 +63,7 @@ $(function () {
                 // Add the new image
                 $("#hosp-img").append(img);
                 $("#hosp-name").text(hosp.name);
-                $("#hosp-rating").html(stars); 
+                $("#hosp-rating").html(stars);
                 $("#hosp-distance").text(hosp.distance);
                 $("#hosp-address").text(hosp.address);
                 $("#hosp-phone").text(hosp.phone);
@@ -99,7 +99,7 @@ $(function () {
 
 // Add onclick event to each card in the hospital list
 function cardclick(card) {
-    
+
 
     // Put the information of the selected hospital into the right panel
     var name = $(card).find(".card-title").text();

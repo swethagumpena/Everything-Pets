@@ -76,6 +76,10 @@ p {
   overflow-y: scroll;
 }
 
+.hospital-card:hover {
+  cursor: pointer;
+}
+
 /* Scrollbar styles */
 
 /* width */
