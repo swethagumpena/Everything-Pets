@@ -14,7 +14,8 @@
                 "Cat"
             ],
             "phone": "+1(123) 456-7890",
-            "website": "www.marcusboarding.com"
+            "website": "www.marcusboarding.com",
+            "locationOfService": "In-home"
         },
         {
             "id": 2,
@@ -29,7 +30,8 @@
                 "Dog"
             ],
             "phone": "+1(312) 896-7090",
-            "website": "www.petco.com"
+            "website": "www.petco.com",
+            "locationOfService": "Outdoors"
         },
         {
             "id": 3,
@@ -44,7 +46,8 @@
                 "Dog"
             ],
             "phone": "+1(312) 896-7191",
-            "website": "www.galaboarding.com"
+            "website": "www.galaboarding.com",
+            "locationOfService": "In-home"
         },
         {
             "id": 4,
@@ -61,7 +64,8 @@
                 "Fish"
             ],
             "phone": "+1(916) 796-0191",
-            "website": "www.oliveadobe.com"
+            "website": "www.oliveadobe.com",
+            "locationOfService": "In-home"
         },
         {
             "id": 5,
@@ -76,7 +80,8 @@
                 "Dog"
             ],
             "phone": "+1(123) 816-7811",
-            "website": "www.jonathonhomes.com"
+            "website": "www.jonathonhomes.com",
+            "locationOfService": "Outdoors"
         }
     ]
 }

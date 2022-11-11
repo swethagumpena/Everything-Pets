@@ -13,7 +13,8 @@ const boardingsData = [
       "Cat"
     ],
     "phone": "+1(123) 456-7890",
-    "website": "www.marcusboarding.com"
+    "website": "www.marcusboarding.com",
+    "locationOfService": "In-home"
   },
   {
     "id": 2,
@@ -28,7 +29,8 @@ const boardingsData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7090",
-    "website": "www.petco.com"
+    "website": "www.petco.com",
+    "locationOfService": "Outdoors"
   },
   {
     "id": 3,
@@ -43,7 +45,8 @@ const boardingsData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7191",
-    "website": "www.galaboarding.com"
+    "website": "www.galaboarding.com",
+    "locationOfService": "In-home"
   },
   {
     "id": 4,
@@ -60,7 +63,8 @@ const boardingsData = [
       "Fish"
     ],
     "phone": "+1(916) 796-0191",
-    "website": "www.oliveadobe.com"
+    "website": "www.oliveadobe.com",
+    "locationOfService": "In-home"
   },
   {
     "id": 5,
@@ -75,7 +79,8 @@ const boardingsData = [
       "Dog"
     ],
     "phone": "+1(123) 816-7811",
-    "website": "www.jonathonhomes.com"
+    "website": "www.jonathonhomes.com",
+    "locationOfService": "Outdoors"
   }
 ]
 
@@ -162,6 +167,10 @@ function displayBoardings() {
                   <i class="bi bi-clock me-2"></i>
                   ${boarding.status}  |   ${boarding.status === 'Open' ? `Closes at ${boarding.closingTime}` : `Opens at ${boarding.openingTime}`}
                 </p>
+                <p class="boarding-location-of-services mb-2">
+                <span style="font-weight: 700;">Location of Service:&nbsp</span>
+                ${boarding.locationOfService}
+              </p>
                 <div class="d-flex align-items-center mt-2">
                   <span style="font-weight: 700;">For:&nbsp</span>
                      <p>${boarding.petTypes.join(', ')}</p>
@@ -182,6 +191,7 @@ function onBoardingCardClick(id) {
     $('#boardingAddress').text(data[boardingId].address)
     $('#boardingStatus').text(data[boardingId].status)
     $('#boardingPets').text(data[boardingId].petTypes.join(', '))
+    $('#boardingLocationOfService').text(data[boardingId].locationOfService)
     $('#boardingPhone').text(data[boardingId].phone)
     $('#boardingSite').attr("href", data[boardingId].website)
     $('#boardingSite').text(data[boardingId].website)
@@ -190,14 +200,6 @@ function onBoardingCardClick(id) {
     $('#carouselImg3').attr("src", data[boardingId].image)
   })
 }
-
-
-
-
-
-
-
-
 
 function signInOut() {
   var signInButton = document.getElementById("sign-in");
