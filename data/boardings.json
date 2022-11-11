@@ -1,0 +1,82 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Marcus Boarding",
+            "image": "./images/petBoarding/boarding1.jpeg",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ],
+            "phone": "+1(123) 456-7890",
+            "website": "www.marcusboarding.com"
+        },
+        {
+            "id": 2,
+            "name": "Petco",
+            "image": "./images/petStores/petStore2.png",
+            "rating": 5,
+            "address": "710 S Lytle St, Chicago IL, 60607",
+            "status": "Closed",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "petTypes": [
+                "Dog"
+            ],
+            "phone": "+1(312) 896-7090",
+            "website": "www.petco.com"
+        },
+        {
+            "id": 3,
+            "name": "Gala Boarding",
+            "image": "./images/petBoarding/boarding3.jpeg",
+            "rating": 5,
+            "address": "821 S Racine Ave, Chicago IL, 60607",
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "petTypes": [
+                "Dog"
+            ],
+            "phone": "+1(312) 896-7191",
+            "website": "www.galaboarding.com"
+        },
+        {
+            "id": 4,
+            "name": "Olive Adobe",
+            "image": "./images/petBoarding/boarding4.jpeg",
+            "rating": 5,
+            "address": "916 W Carpenter St, Chicago IL, 60607",
+            "status": "Closed",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "petTypes": [
+                "Dog",
+                "Bird",
+                "Fish"
+            ],
+            "phone": "+1(916) 796-0191",
+            "website": "www.oliveadobe.com"
+        },
+        {
+            "id": 5,
+            "name": "Jonathon Homes",
+            "image": "./images/petBoarding/boarding5.jpeg",
+            "rating": 5,
+            "address": "119 N Halsted St, Chicago IL, 60607",
+            "status": "Closed",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "petTypes": [
+                "Dog"
+            ],
+            "phone": "+1(123) 816-7811",
+            "website": "www.jonathonhomes.com"
+        }
+    ]
+}

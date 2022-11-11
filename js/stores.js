@@ -127,7 +127,7 @@ $(function () {
         $(checkBox).attr("type", "checkbox");
         $(checkBox).attr("value", categoryOption.value);
         $(checkBox).css("margin-right", "10px");
-        $(checkBox).attr("id", 'filter-' + categoryOption.value);
+        $(checkBox).attr("id", 'store-filter-' + categoryOption.value);
         $(checkBox).attr("onClick", `onFilterOptionClick('${categoryOption.value}')`);
         $(checkBox).addClass("form-check-input")
 
@@ -147,7 +147,7 @@ $(function () {
 var selectedOptions = []
 
 function onFilterOptionClick(option) {
-  if ($(`#filter-${option}`).is(':checked')) {
+  if ($(`#store-filter-${option}`).is(':checked')) {
     selectedOptions.push(option)
   } else {
     var index = selectedOptions.indexOf(option);
