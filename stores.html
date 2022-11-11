@@ -27,14 +27,14 @@
     <script src="./js/stores.js"></script>
   </head>
 
-  <body class="bg-light" style="overflow-x: hidden;">
+  <body class="bg-light" style="overflow-x: hidden">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img
             src="./images/project icon 1.png"
-            style="height: 3rem;"
+            style="height: 3rem"
             class="ms-3"
             alt=""
           />
@@ -98,111 +98,154 @@
           <u>Chicago 60607</u>
         </h2>
         <!-- TODO: change location  -->
-        <div id="stores-list" class="row">
-          <div class="col-lg-3 mb-5">
-            <div class="card shadow-sm">
-              <img
-                src="./images/petStores/petStore1.png"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Store Name</h5>
-                <p class="card-text">
-                  <p class="store-address mb-2">
-                    <i class="bi bi-geo-alt me-2"></i>
-                    Lorem ipsum dolor sit amet - 60607
-                  </p>
-                  
-                  <p class="store-status">
-                    <i class="bi bi-clock me-2"></i>
-                    Closes at 12 PM | Open
-                  </p>
-                </p>
+        <div id="stores-list" class="row"></div>
+        <div
+          class="modal fade"
+          id="storesDetailModal"
+          tabindex="-1"
+          aria-labelledby="modalTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="storeName">Store Name</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-3 mb-5">
-            <div class="card shadow-sm">
-              <img
-                src="./images/petStores/petStore1.png"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Store Name</h5>
-                <p class="card-text">
-                  <p class="store-address mb-2">
+              <div class="modal-body row d-flex">
+                <div class="col-lg-6">
+                  <div class="store-address mb-2 d-flex align-items-center">
                     <i class="bi bi-geo-alt me-2"></i>
-                    Lorem ipsum dolor sit amet - 60607
-                  </p>
-                  
-                  <p class="store-status">
-                    <i class="bi bi-clock me-2"></i>
-                    Closes at 12 PM | Open
-                  </p>
-                </p>
-              </div>
-            </div>
-          </div><div class="col-lg-3 mb-5">
-            <div class="card shadow-sm">
-              <img
-                src="./images/petStores/petStore1.png"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Store Name</h5>
-                <p class="card-text">
-                  <p class="store-address mb-2">
-                    <i class="bi bi-geo-alt me-2"></i>
-                    Lorem ipsum dolor sit amet - 60607
-                  </p>
-                  
-                  <p class="store-status">
-                    <i class="bi bi-clock me-2"></i>
-                    Closes at 12 PM | Open
-                  </p>
-                </p>
-              </div>
-            </div>
-          </div><div class="col-lg-3 mb-5">
-            <div class="card shadow-sm">
-              <img
-                src="./images/petStores/petStore1.png"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Store Name</h5>
-                <p class="card-text">
-                  <p class="store-address mb-2">
-                    <i class="bi bi-geo-alt me-2"></i>
-                    Lorem ipsum dolor sit amet - 60607
-                  </p>
-                  
-                  <p class="store-status">
-                    <i class="bi bi-clock me-2"></i>
-                    Closes at 12 PM | Open
-                  </p>
-                </p>
-              </div>
-            </div>
-          </div><div class="col-lg-3 mb-5">
-            <div class="card shadow-sm">
-              <img
-                src="./images/petStores/petStore1.png"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Store Name</h5>
-                <p class="card-text">
-                  <p class="store-address mb-2">
-                    <i class="bi bi-geo-alt me-2"></i>
-                    Lorem ipsum dolor sit amet - 60607
-                  </p>
-                  
-                  <p class="store-status">
-                    <i class="bi bi-clock me-2"></i>
-                    Closes at 12 PM | Open
-                  </p>
-                </p>
+                    <p id="storeAddress">Store Address</p>
+                  </div>
+                  <div class="d-flex store-status mb-2 align-items-baseline">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-clock me-2"></i>
+                      <p id="storeStatus">Status</p>
+                      &nbsp | &nbsp
+                    </div>
+                    <div>
+                      <p>09:00 - 21:00 (Weekdays)</p>
+                      <p>09:00 - 17:00 (Weekends)</p>
+                    </div>
+                  </div>
+                  <p class="store-services mb-0 fw-bold">Services offered:</p>
+                  <ul id="storeServices"></ul>
+                  <div class="store-for d-flex mb-2">
+                    <p class="fw-bold">For:</p>
+                    &nbsp;
+                    <p id="storePets">Pets</p>
+                  </div>
+                  <div class="d-flex justify-content-between mb-2">
+                    <div class="store-phone mb-2 d-flex align-items-center">
+                      <i class="bi bi-telephone-fill me-2"></i>
+                      <p id="storePhone">Phone number</p>
+                    </div>
+                    <p class="store-website">
+                      <i class="bi bi-globe me-2"></i>
+                      <a id="storeSite" href="www.example.com">Website</a>
+                    </p>
+                  </div>
+                  <div class="form-outline">
+                    <label class="form-label" for="textAreaExample"
+                      >My notes</label
+                    >
+                    <i class="bi bi-pencil-square"></i>
+                    <textarea
+                      class="form-control"
+                      id="textAreaExample1"
+                      rows="2"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div
+                    id="carouselExampleIndicators"
+                    class="carousel slide mb-2"
+                    data-bs-ride="carousel"
+                  >
+                    <div class="carousel-indicators">
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                      ></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"
+                      ></button>
+                      <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"
+                      ></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img
+                          src="./images/store.png"
+                          class="d-block w-100"
+                          alt="image1"
+                          id="carouselImg1"
+                          style="height: 16rem"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="./images/store.png"
+                          class="d-block w-100"
+                          alt="image2"
+                          id="carouselImg2"
+                          style="height: 16rem"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src="./images/store.png"
+                          class="d-block w-100"
+                          alt="image3"
+                          id="carouselImg3"
+                          style="height: 16rem"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="prev"
+                    >
+                      <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="next"
+                    >
+                      <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

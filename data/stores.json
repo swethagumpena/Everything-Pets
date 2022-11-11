@@ -5,20 +5,21 @@
             "name": "Olive Pet Store",
             "image": "./images/petStores/petStore1.png",
             "rating": 4,
-            "address": "1203 W Taylor St, Chicago IL, 60607",
+            "address": "123 W Taylor St, Chicago IL, 60607",
             "status": "Open",
             "openingTime": "06:00",
             "closingTime": "21:00",
             "services": [
                 "Grooming",
                 "Food",
-                "Activities",
-                "Toys"
+                "Activities"
             ],
             "petTypes": [
                 "Dog",
                 "Cat"
-            ]
+            ],
+            "phone": "+1(123) 456-7890",
+            "website": "www.olivepetstore.com"
         },
         {
             "id": 2,
@@ -30,49 +31,73 @@
             "openingTime": "06:00",
             "closingTime": "21:00",
             "services": [
-                "Grooming",
                 "Food",
-                "Activities"
+                "Medicines"
             ],
             "petTypes": [
                 "Dog"
-            ]
+            ],
+            "phone": "+1(312) 896-7090",
+            "website": "www.petco.com"
         },
         {
-            "id": 2,
-            "name": "Petco",
-            "image": "./images/petStores/petStore1.png",
+            "id": 3,
+            "name": "Fuji Adobe",
+            "image": "./images/petStores/petStore3.png",
             "rating": 5,
-            "address": "710 S Lytle St, Chicago IL, 60607",
+            "address": "821 S Racine Ave, Chicago IL, 60607",
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "services": [
+                "Grooming",
+                "Food"
+            ],
+            "petTypes": [
+                "Dog"
+            ],
+            "phone": "+1(312) 896-7191",
+            "website": "www.fujiadobe.com"
+        },
+        {
+            "id": 4,
+            "name": "Petland",
+            "image": "./images/petStores/petStore4.png",
+            "rating": 5,
+            "address": "916 W Carpenter St, Chicago IL, 60607",
             "status": "Closed",
             "openingTime": "06:00",
             "closingTime": "21:00",
             "services": [
                 "Grooming",
-                "Food",
                 "Activities"
             ],
             "petTypes": [
-                "Dog"
-            ]
+                "Dog",
+                "Bird",
+                "Fish"
+            ],
+            "phone": "+1(916) 796-0191",
+            "website": "www.petland.com"
         },
         {
-            "id": 2,
-            "name": "Petco",
-            "image": "./images/petStores/petStore2.png",
+            "id": 5,
+            "name": "Jameson Stores",
+            "image": "./images/petStores/petStore5.png",
             "rating": 5,
-            "address": "710 S Lytle St, Chicago IL, 60607",
+            "address": "119 N Halsted St, Chicago IL, 60607",
             "status": "Closed",
             "openingTime": "06:00",
             "closingTime": "21:00",
             "services": [
                 "Grooming",
-                "Food",
                 "Activities"
             ],
             "petTypes": [
                 "Dog"
-            ]
+            ],
+            "phone": "+1(123) 816-7811",
+            "website": "www.jamesonstores.com"
         }
     ]
 }

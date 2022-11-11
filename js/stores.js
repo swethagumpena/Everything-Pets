@@ -1,3 +1,10 @@
+const serviceDescription = {
+  Grooming: "Grooming and spa services",
+  Food: "Pet food from top brands",
+  Activities: "Location specific activities",
+  Medicines: "Emergency and healthcare medicinies"
+}
+
 $(function () {
   $.getJSON('data/storeFilters.json', function ({ data }) {
     $.each(data, function (i, category) {
@@ -30,64 +37,60 @@ $(function () {
 
 $(function () {
   $.getJSON('data/stores.json', function ({ data }) {
-    var card = ``
-    // $.each(data, function (i, store) {
-    //   var card = `<div class="col-sm-3 card d-flex align-items-center">
-    //   <img class="card-img-top" src=${store.image} alt="Card image cap">
-    //   <div class="card-body align-self-start">
-    //     <p style="font-size: 26px; font-weight: 700; margin-bottom: 0;">${store.name}</p>
-    //     <div class="d-flex align-items-center">
-    //         <i class="bi bi-geo-fill"></i>
-    //         <p class="mx-3">${store.address}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center my-2">
-    //         <i class="bi bi-clock"></i>
-    //         <p class="mx-3">${store.status}</p>
-    //         <p class="mx-3">|</p>
-    //         <p class="mx-3">${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center my-2">
-    //         <p style="font-weight: 700;">Specialize in:&nbsp</p>
-    //         <p>${store.services.join(', ')}</p>
-    //     </div>
-    //     <div class="d-flex align-items-center mt-2">
-    //         <p style="font-weight: 700;">For:&nbsp</p>
-    //         <p>${store.petTypes.join(', ')}</p>
-    //     </div>
-    //   </div>
-    // </div>`
-    //   for (let i = 0; i < store.rating; i++) {
-    //     // TODO: not working
-    //     $(`#rating-${store.id}`).append("<i class='bi bi-star-fill'></i>")
-    //   }
-    //   $("#stores-list").append(card)
-    // })
+    $.each(data, function (i, store) {
+      var card = `
+  <div class="col-lg-3 mb-4" data-bs-toggle="modal" data-bs-target="#storesDetailModal" style="cursor:pointer" onClick=onStoreCardClick(${store.id})>
+    <div class="card shadow-sm">
+      <img
+        src=${store.image}
+        class="card-img-top"
+        style="height:16rem"
+      />
+      <div class="card-body" style="height:14rem">
+        <h5 class="card-title">${store.name}</h5>
+        <p class="card-text">
+          <p class="store-address mb-2">
+            <i class="bi bi-geo-alt me-2"></i>
+            ${store.address}
+          </p>
+          <p class="store-status mb-2">
+            <i class="bi bi-clock me-2"></i>
+            ${store.status}  |   ${store.status === 'Open' ? `Closes at ${store.closingTime}` : `Opens at ${store.openingTime}`}
+          </p>
+          <p class="store-services mb-2">
+            <span style="font-weight: 700;">Services:&nbsp</span>
+            ${store.services.join(', ')}
+          </p>
+          <div class="d-flex align-items-center mt-2">
+            <span style="font-weight: 700;">For:&nbsp</span>
+               <p>${store.petTypes.join(', ')}</p>
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>`
+      $("#stores-list").append(card)
+    })
   })
 })
 
-function onClick() {
+function onStoreCardClick(id) {
   $.getJSON('data/stores.json', function ({ data }) {
-    $.each(data, function (i, store) {
-      var modal = ` 
-     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">${store.name}</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `
+    const storeId = id - 1
+    $('#storeName').text(data[storeId].name)
+    $('#storeAddress').text(data[storeId].address)
+    $('#storeStatus').text(data[storeId].status)
+    $('#storeServices').text('')
+    data[storeId].services.map((service) => {
+      $('#storeServices').append(`<li>${serviceDescription[service]}</li>`)
     })
+    $('#storePets').text(data[storeId].petTypes.join(', '))
+    $('#storePhone').text(data[storeId].phone)
+    $('#storeSite').attr("href", data[storeId].website)
+    $('#storeSite').text(data[storeId].website)
+    $('#carouselImg1').attr("src", data[storeId].image)
+    $('#carouselImg2').attr("src", data[storeId].image)
+    $('#carouselImg3').attr("src", data[storeId].image)
   })
 }
 
