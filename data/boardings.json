@@ -20,7 +20,7 @@
         {
             "id": 2,
             "name": "Petco",
-            "image": "./images/petStores/petStore2.png",
+            "image": "./images/petBoarding/boarding2.jpeg",
             "rating": 5,
             "address": "710 S Lytle St, Chicago IL, 60607",
             "status": "Closed",
