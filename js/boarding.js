@@ -25,12 +25,6 @@ function onClick() {
       })
     })
   }
-  
-
-
-
-
-
 
 
 function signInOut() {
