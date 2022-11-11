@@ -1,0 +1,228 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "North Center Animal Hospital",
+            "image": "./images/hosp/hosp1.png",
+            "rating": 4,
+            "address": "123 W Taylor St, Chicago IL, 60607",
+            "distance": 1.2,
+            "status": "Open",
+            "openingTime": "06:00",
+            "closingTime": "21:00",
+            "phone": "312-123-4567",
+            "website": "https://www.northcenteranimalhospital.com/",
+            "specilaity": [
+                "Dentistry",
+                "Dermatology",
+                "Internal Medicine",
+                "Neurology",
+                "Oncology",
+                "Ophthalmology",
+                "Orthopedics",
+                "Surgery",
+                "Urology"
+            ],
+            "petTypes": [
+                "Dog",
+                "Cat"
+            ]
+        }
+    ]
+}

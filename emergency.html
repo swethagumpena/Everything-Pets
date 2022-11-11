@@ -20,7 +20,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="./css/emergency.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./js/stores.js"></script>
   </head>
 
   <body style="overflow-x: hidden;">
@@ -74,8 +78,23 @@
       </div>
     </nav>
 
-    <!-- Emergency Page code here -->
+    <!-- Main -->
+    <!-- Two columns, left is a list of cards with hospital information, right more information about the selected hospital       -->
+    <main>
+    <div class="d-flex" style="height: 90%;">
+      <div class="col-md-6 left-pane p-4 overflow-auto" style="background-color: #F5F5F5;">
+          <div class="" id="hosp-list"></div>
+      </div>
+      <div class="col-md-6 right-pane p-4 overflow-auto flex-grow-1" style="background-color: white;">
+        Right
+      </div>
+    </div>
+    </main>
 
+                  
+
+    <!-- Emergency Page code here -->
+    <script src="./js/emergency.js"></script>
     <!-- Bootstrap JS bundle -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
