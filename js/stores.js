@@ -183,7 +183,7 @@ function displayStores() {
             <div class="card-body" style="height:14rem">
             <div class="row">
               <div class="col-lg-10">
-                <h5 class="card-title" style="display: inline-block">${store.name}</h5>
+                <h5 class="card-title">${store.name}</h5>
               </div>
               <div class="col-lg-2">
                 <i class="bi bi-heart fs-5"></i>

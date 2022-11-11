@@ -100,6 +100,7 @@ $(function () {
         $(checkBox).css("margin-right", "10px");
         $(checkBox).attr("id", 'boarding-filter-' + categoryOption.value);
         $(checkBox).attr("onClick", `onBoardingFilterOptionClick('${categoryOption.value}')`);
+        $(checkBox).addClass("form-check-input")
 
         var label = document.createElement("label");
         $(label).attr("for", categoryOption.value);
@@ -143,15 +144,22 @@ function displayBoardings() {
       stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
     }
     var card = `
-        <div class="col-lg-3 mb-4" data-bs-toggle="modal" data-bs-target="#boardingDetailModal" style="cursor:pointer" onClick=onBoardingCardClick(${boarding.id})>
+        <div class="col-lg-3 px-3 py-4" data-bs-toggle="modal" data-bs-target="#boardingDetailModal" style="cursor:pointer" onClick=onBoardingCardClick(${boarding.id})>
           <div class="card shadow-sm">
             <img
               src=${boarding.image}
               class="card-img-top"
               style="height:16rem"
             />
-            <div class="card-body" style="height:14rem">
+            <div class="card-body" style="height:12rem">
+            <div class="row">
+              <div class="col-lg-10">
               <h5 class="card-title">${boarding.name}</h5>
+              </div>
+              <div class="col-lg-2">
+                <i class="bi bi-heart fs-5"></i>
+              </div>
+            </div>
               <p class="card-text mb-2">${stars}</p>
               <p class="card-text">
                 <p class="boarding-address mb-2">

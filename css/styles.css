@@ -21,7 +21,8 @@ p {
 }
 
 .store-address,
-.store-services {
+.store-services,
+.boarding-address {
   -webkit-line-clamp: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
