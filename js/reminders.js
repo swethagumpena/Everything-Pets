@@ -5,13 +5,6 @@ reminders = [
         end: '2022-11-22T14:26',
         address: '1203 W Taylor St, Chicago, IL - 60607',
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet rem illo totam enim veniam? Doloremque exercitationem tenetur, id eveniet distinctio hic voluptas sed provident quam.'
-    },
-    {
-        title: "Freya's Vet Visit",
-        start: '2022-11-22T14:26',
-        end: '2022-11-22T14:26',
-        address: '1203 W Taylor St, Chicago, IL - 60607',
-        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet rem illo totam enim veniam? Doloremque exercitationem tenetur, id eveniet distinctio hic voluptas sed provident quam.'
     }
 ]
 
@@ -21,8 +14,11 @@ const calendar = new Calendar({
     dateChanged: (currentDate, filteredDateEvents) => {
         console.log(currentDate, filteredDateEvents);
         displayReminders(filteredDateEvents)
+        $('#reminders-on-date').text('Reminders on ' + moment(currentDate).local(true).format('DD MMM, YYYY'))
     }
 })
+
+$('#reminders-on-date').text('Reminders on ' + moment(calendar.getSelectedDate()).local(true).format('DD MMM, YYYY'))
 
 $('#add-reminder-button').on('click', e => {
     const title = $('#add-reminder-title')
@@ -139,7 +135,6 @@ function openReminder(i) {
     const eventsThisMonth = calendar.filteredEventsThisMonth
 
     const reminders = eventsThisMonth.filter(event => {
-
         return moment(event.start).format('YYYY-MM-DD') == moment(calendar.getSelectedDate()).local(true).format('YYYY-MM-DD')
     });
 
