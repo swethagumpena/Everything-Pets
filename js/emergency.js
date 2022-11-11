@@ -78,7 +78,7 @@ $(function () {
                 }
                 // Remove the last comma
                 specialityList = specialityList.slice(0, -2);
-                $("#hosp-specilaity").text(specialityList);
+                $("#hosp-speciality").text(specialityList);
                 var petTypes = hosp.petTypes;
                 var petTypesList = ``;
                 for (let i = 0; i < petTypes.length; i++) {
