@@ -5,7 +5,7 @@ reminders = [
         end: '2022-11-22T14:26',
         address: '1203 W Taylor St, Chicago, IL - 60607',
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet rem illo totam enim veniam? Doloremque exercitationem tenetur, id eveniet distinctio hic voluptas sed provident quam.'
-    },
+    }
 ]
 
 const calendar = new Calendar({
@@ -14,8 +14,11 @@ const calendar = new Calendar({
     dateChanged: (currentDate, filteredDateEvents) => {
         console.log(currentDate, filteredDateEvents);
         displayReminders(filteredDateEvents)
+        $('#reminders-on-date').text('Reminders on ' + moment(currentDate).local(true).format('DD MMM, YYYY'))
     }
 })
+
+$('#reminders-on-date').text('Reminders on ' + moment(calendar.getSelectedDate()).local(true).format('DD MMM, YYYY'))
 
 $('#add-reminder-button').on('click', e => {
     const title = $('#add-reminder-title')
@@ -129,7 +132,13 @@ function addReminder(reminder) {
 }
 
 function openReminder(i) {
-    const reminder = reminders[i];
+    const eventsThisMonth = calendar.filteredEventsThisMonth
+
+    const reminders = eventsThisMonth.filter(event => {
+        return moment(event.start).format('YYYY-MM-DD') == moment(calendar.getSelectedDate()).local(true).format('YYYY-MM-DD')
+    });
+
+    const reminder = reminders[i]
 
     const date = moment(reminder.start).format("DD MMM, YYYY")
     const time = moment(reminder.start).format("HH:MM");
@@ -138,7 +147,7 @@ function openReminder(i) {
     $('#reminder-details-date').text(date)
     $('#reminder-details-time').text(time)
     $('#reminder-details-address').text(reminder.address)
-    console.log($('#reminder-details-description').text(reminder.description));
+    $('#reminder-details-description').text(reminder.description);
 
     var reminderDetailsModal = bootstrap.Modal.getOrCreateInstance($('#reminderDetailsModal'))
     reminderDetailsModal.show();
