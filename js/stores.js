@@ -82,7 +82,12 @@ $(function () {
 function onStoreCardClick(id) {
   $.getJSON('data/stores.json', function ({ data }) {
     const storeId = id - 1
+    var stars = ``;
+    for (let i = 0; i < data[storeId].rating; i++) {
+      stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+    }
     $('#storeName').text(data[storeId].name)
+    $('#storeStars').html(stars)
     $('#storeAddress').text(data[storeId].address)
     $('#storeStatus').text(data[storeId].status)
     $('#storeServices').text('')
