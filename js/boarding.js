@@ -191,11 +191,15 @@ function displayBoardings() {
   })
 }
 
-
 function onBoardingCardClick(id) {
   $.getJSON('data/boardings.json', function ({ data }) {
     const boardingId = id - 1
+    var stars = ``;
+    for (let i = 0; i < data[boardingId].rating; i++) {
+      stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+    }
     $('#boardingName').text(data[boardingId].name)
+    $('#boardingStars').html(stars)
     $('#boardingAddress').text(data[boardingId].address)
     $('#boardingStatus').text(data[boardingId].status)
     $('#boardingPets').text(data[boardingId].petTypes.join(', '))
