@@ -20,6 +20,15 @@ p {
   margin-bottom: 0;
 }
 
+.store-address,
+.store-services,
+.boarding-address {
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .reminder {
   background-color: #fff;
   transition: 0.1s;
@@ -90,5 +99,3 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: #aaa;
 }
-
-

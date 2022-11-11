@@ -129,6 +129,7 @@ $(function () {
         $(checkBox).css("margin-right", "10px");
         $(checkBox).attr("id", 'store-filter-' + categoryOption.value);
         $(checkBox).attr("onClick", `onFilterOptionClick('${categoryOption.value}')`);
+        $(checkBox).addClass("form-check-input")
 
         var label = document.createElement("label");
         $(label).attr("for", categoryOption.value);
@@ -172,7 +173,7 @@ function displayStores() {
       stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
     }
     var card = `
-        <div class="col-lg-3 mb-4" data-bs-toggle="modal" data-bs-target="#storesDetailModal" style="cursor:pointer" onClick=onStoreCardClick(${store.id})>
+        <div class="col-lg-3 px-3 py-4" data-bs-toggle="modal" data-bs-target="#storesDetailModal" style="cursor:pointer" onClick=onStoreCardClick(${store.id})>
           <div class="card shadow-sm">
             <img
               src=${store.image}
@@ -180,7 +181,14 @@ function displayStores() {
               style="height:16rem"
             />
             <div class="card-body" style="height:14rem">
-              <h5 class="card-title">${store.name}</h5>
+            <div class="row">
+              <div class="col-lg-10">
+                <h5 class="card-title">${store.name}</h5>
+              </div>
+              <div class="col-lg-2">
+                <i class="bi bi-heart fs-5"></i>
+              </div>
+            </div>
               <p class="card-text mb-2">${stars}</p>
               <p class="card-text">
                 <p class="store-address mb-2">
