@@ -38,6 +38,10 @@ $(function () {
 $(function () {
   $.getJSON('data/stores.json', function ({ data }) {
     $.each(data, function (i, store) {
+      var stars = ``;
+      for (let i = 0; i < store.rating; i++) {
+        stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+      }
       var card = `
   <div class="col-lg-3 mb-4" data-bs-toggle="modal" data-bs-target="#storesDetailModal" style="cursor:pointer" onClick=onStoreCardClick(${store.id})>
     <div class="card shadow-sm">
@@ -48,6 +52,7 @@ $(function () {
       />
       <div class="card-body" style="height:14rem">
         <h5 class="card-title">${store.name}</h5>
+        <p class="card-text mb-2">${stars}</p>
         <p class="card-text">
           <p class="store-address mb-2">
             <i class="bi bi-geo-alt me-2"></i>
