@@ -99,8 +99,10 @@ $(function () {
 
       $.each(category.data, function (i, categoryOption) {
         var option = document.createElement("div");
+        $(option).css("margin-top", "6px");
         var checkBox = document.createElement("input");
         $(checkBox).attr("type", "checkbox");
+        $(checkBox).attr("name", "option");
         $(checkBox).attr("value", categoryOption.value);
         $(checkBox).css("margin-right", "10px");
         $(checkBox).attr("id", 'boarding-filter-' + categoryOption.value);
@@ -116,9 +118,25 @@ $(function () {
         $(section).append(option)
       })
       $('#filter-data').append(section)
+      $('input[name="option"]').change(function () {
+        if ($('input[name="option"]:checked').length > 0) {
+          $("#filter-clear").removeClass("d-none");
+        } else {
+          $("#filter-clear").addClass("d-none");
+        }
+      });
     })
   });
 });
+
+function onClearAllClick() {
+  $('input[name="option"]').each(function () {
+    this.checked = false;
+  });
+  requiredBoardings = []
+  displayBoardings()
+  $("#filter-clear").addClass("d-none");
+}
 
 var selectedBoardingOptions = []
 
@@ -133,7 +151,7 @@ function onBoardingFilterOptionClick(option) {
   }
   requiredBoardings = []
   boardingsData.forEach((boarding) => {
-    if (boarding.petTypes.some(r => selectedBoardingOptions.indexOf(r) >= 0)) {
+    if (boarding.petTypes.some(r => selectedBoardingOptions.indexOf(r) >= 0) || selectedBoardingOptions.indexOf(boarding.locationOfService) >= 0) {
       requiredBoardings.push(boarding)
     }
   })
