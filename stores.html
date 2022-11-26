@@ -27,14 +27,14 @@
     <script src="./js/stores.js"></script>
   </head>
 
-  <body class="bg-light" style="overflow-x: hidden;">
+  <body class="bg-light" style="overflow-x: hidden">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img
             src="./images/project icon 1.png"
-            style="height: 3rem;"
+            style="height: 3rem"
             class="ms-3"
             alt=""
           />
@@ -89,11 +89,20 @@
     <!-- Stores Page code here -->
     <div class="d-flex">
       <div class="col-md-2 px-4 py-5 bg-white" id="stores-filter-panel">
-        <h3>Filters</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="m-0">Filters</h3>
+          <input
+            type="button"
+            role="button"
+            value="Clear all"
+            id="filter-clear"
+            onClick="onClearAllClick();"
+            class="d-none btn btn-danger btn-sm"
+          />
+        </div>
         <div id="filter-data"></div>
       </div>
       <div class="col-md-10 right-pane p-4">
-        <!-- TODO: change location  -->
         <div id="stores-list" class="row"></div>
         <div
           class="modal fade"
@@ -117,14 +126,14 @@
                   <h3
                     class="modal-title mb-3 me-2"
                     id="storeName"
-                    style="display: inline-block;"
+                    style="display: inline-block"
                   >
                     Store Name
                   </h3>
                   <div
                     class="py-2"
                     id="storeStars"
-                    style="display: inline-block;"
+                    style="display: inline-block"
                   ></div>
                   <div class="store-address mb-2 d-flex align-items-center">
                     <i class="bi bi-geo-alt me-2"></i>
@@ -194,7 +203,7 @@
                           class="d-block w-100"
                           alt="image1"
                           id="carouselImg1"
-                          style="height: 16rem;"
+                          style="height: 16rem"
                         />
                       </div>
                       <div class="carousel-item">
@@ -203,7 +212,7 @@
                           class="d-block w-100"
                           alt="image2"
                           id="carouselImg2"
-                          style="height: 16rem;"
+                          style="height: 16rem"
                         />
                       </div>
                       <div class="carousel-item">
@@ -212,7 +221,7 @@
                           class="d-block w-100"
                           alt="image3"
                           id="carouselImg3"
-                          style="height: 16rem;"
+                          style="height: 16rem"
                         />
                       </div>
                     </div>
