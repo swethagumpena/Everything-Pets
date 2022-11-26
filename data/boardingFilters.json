@@ -33,6 +33,15 @@
                     "value": "Outdoors"
                 }
             ]
+        },
+        {
+            "title": "Others",
+            "data": [
+                {
+                    "id": 1,
+                    "value": "Favorites"
+                }
+            ]
         }
     ]
 }

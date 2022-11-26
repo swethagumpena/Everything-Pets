@@ -14,7 +14,8 @@ const boardingsData = [
     ],
     "phone": "+1(123) 456-7890",
     "website": "www.marcusboarding.com",
-    "locationOfService": "In-home"
+    "locationOfService": "In-home",
+    "favorite": false
   },
   {
     "id": 2,
@@ -30,7 +31,8 @@ const boardingsData = [
     ],
     "phone": "+1(312) 896-7090",
     "website": "www.petco.com",
-    "locationOfService": "Outdoors"
+    "locationOfService": "Outdoors",
+    "favorite": false
   },
   {
     "id": 3,
@@ -46,7 +48,8 @@ const boardingsData = [
     ],
     "phone": "+1(312) 896-7191",
     "website": "www.galaboarding.com",
-    "locationOfService": "In-home"
+    "locationOfService": "In-home",
+    "favorite": true
   },
   {
     "id": 4,
@@ -64,7 +67,8 @@ const boardingsData = [
     ],
     "phone": "+1(916) 796-0191",
     "website": "www.oliveadobe.com",
-    "locationOfService": "In-home"
+    "locationOfService": "In-home",
+    "favorite": false
   },
   {
     "id": 5,
@@ -80,7 +84,8 @@ const boardingsData = [
     ],
     "phone": "+1(123) 816-7811",
     "website": "www.jonathonhomes.com",
-    "locationOfService": "Outdoors"
+    "locationOfService": "Outdoors",
+    "favorite": true
   }
 ]
 
@@ -151,7 +156,7 @@ function onBoardingFilterOptionClick(option) {
   }
   requiredBoardings = []
   boardingsData.forEach((boarding) => {
-    if (boarding.petTypes.some(r => selectedBoardingOptions.indexOf(r) >= 0) || selectedBoardingOptions.indexOf(boarding.locationOfService) >= 0) {
+    if (boarding.petTypes.some(r => selectedBoardingOptions.indexOf(r) >= 0) || selectedBoardingOptions.indexOf(boarding.locationOfService) >= 0 || (selectedBoardingOptions.indexOf('Favorites') >= 0 && boarding.favorite)) {
       requiredBoardings.push(boarding)
     }
   })
@@ -174,13 +179,13 @@ function displayBoardings() {
               class="card-img-top"
               style="height:16rem"
             />
+            <span class="position-absolute translate-middle badge rounded-pill bg-light" style="top:4%;left:90%;visibility:${boarding.favorite ? 'visible' : 'hidden'}">
+              <i class="bi bi-heart-fill fs-5" style="color: red"></i>
+            </span>
             <div class="card-body" style="height:14rem">
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
               <h5 class="card-title">${boarding.name}</h5>
-              </div>
-              <div class="col-lg-2">
-                <i class="bi bi-heart fs-5"></i>
               </div>
             </div>
               <p class="card-text mb-2">${stars}</p>
@@ -210,25 +215,41 @@ function displayBoardings() {
 }
 
 function onBoardingCardClick(id) {
-  $.getJSON('data/boardings.json', function ({ data }) {
-    const boardingId = id - 1
-    var stars = ``;
-    for (let i = 0; i < data[boardingId].rating; i++) {
-      stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
-    }
-    $('#boardingName').text(data[boardingId].name)
-    $('#boardingStars').html(stars)
-    $('#boardingAddress').text(data[boardingId].address)
-    $('#boardingStatus').text(data[boardingId].status)
-    $('#boardingPets').text(data[boardingId].petTypes.join(', '))
-    $('#boardingLocationOfService').text(data[boardingId].locationOfService)
-    $('#boardingPhone').text(data[boardingId].phone)
-    $('#boardingSite').attr("href", data[boardingId].website)
-    $('#boardingSite').text(data[boardingId].website)
-    $('#carouselImg1').attr("src", data[boardingId].image)
-    $('#carouselImg2').attr("src", data[boardingId].image)
-    $('#carouselImg3').attr("src", data[boardingId].image)
-  })
+  const data = boardingsData
+  const boardingId = id - 1
+  var stars = ``;
+  for (let i = 0; i < data[boardingId].rating; i++) {
+    stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+  }
+  $('#boardingName').text(data[boardingId].name)
+  $('#boardingStars').html(stars)
+  $('#boardingAddress').text(data[boardingId].address)
+  $('#boardingStatus').text(data[boardingId].status)
+  $('#boardingPets').text(data[boardingId].petTypes.join(', '))
+  $('#boardingLocationOfService').text(data[boardingId].locationOfService)
+  $('#boardingPhone').text(data[boardingId].phone)
+  $('#boardingSite').attr("href", data[boardingId].website)
+  $('#boardingSite').text(data[boardingId].website)
+  $('#carouselImg1').attr("src", data[boardingId].image)
+  $('#carouselImg2').attr("src", data[boardingId].image)
+  $('#carouselImg3').attr("src", data[boardingId].image)
+  favButtonText(boardingId)
+}
+
+function favButtonText(id) {
+  $('.favorite-button').attr("id", `favorite-button-${id + 1}`)
+  if (boardingsData[id].favorite) {
+    $('.favorite-button').html('<span class="d-flex align-items-center" style="color:red"><i class="bi bi-heart-fill fs-5 me-2"></i>Remove from favorites</span>')
+  } else {
+    $('.favorite-button').html('<span class="d-flex align-items-center"><i class="bi bi-heart fs-5 me-2"></i>Add to favorites</span>')
+  }
+}
+
+function onFavoriteClick(id) {
+  const boardingId = id.split('-')[2] - 1
+  boardingsData[boardingId].favorite = !boardingsData[boardingId].favorite
+  favButtonText(boardingId)
+  displayBoardings()
 }
 
 function signInOut() {

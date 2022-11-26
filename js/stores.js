@@ -25,7 +25,8 @@ const storesData = [
       "Cat"
     ],
     "phone": "+1(123) 456-7890",
-    "website": "www.olivepetstore.com"
+    "website": "www.olivepetstore.com",
+    "favorite": false
   },
   {
     "id": 2,
@@ -44,7 +45,8 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7090",
-    "website": "www.petco.com"
+    "website": "www.petco.com",
+    "favorite": true
   },
   {
     "id": 3,
@@ -63,7 +65,8 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7191",
-    "website": "www.fujiadobe.com"
+    "website": "www.fujiadobe.com",
+    "favorite": false
   },
   {
     "id": 4,
@@ -84,7 +87,8 @@ const storesData = [
       "Fish"
     ],
     "phone": "+1(916) 796-0191",
-    "website": "www.petland.com"
+    "website": "www.petland.com",
+    "favorite": false
   },
   {
     "id": 5,
@@ -103,7 +107,8 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(123) 816-7811",
-    "website": "www.jamesonstores.com"
+    "website": "www.jamesonstores.com",
+    "favorite": true
   }
 ]
 
@@ -175,7 +180,7 @@ function onFilterOptionClick(option) {
   }
   requiredStores = []
   storesData.forEach((store) => {
-    if (store.petTypes.some(r => selectedOptions.indexOf(r) >= 0) || store.services.some(r => selectedOptions.indexOf(r) >= 0)) {
+    if (store.petTypes.some(r => selectedOptions.indexOf(r) >= 0) || store.services.some(r => selectedOptions.indexOf(r) >= 0) || (selectedOptions.indexOf('Favorites') >= 0 && store.favorite)) {
       requiredStores.push(store)
     }
   })
@@ -198,13 +203,13 @@ function displayStores() {
               class="card-img-top"
               style="height:16rem"
             />
+            <span class="position-absolute translate-middle badge rounded-pill bg-light" style="top:4%;left:90%;visibility:${store.favorite ? 'visible' : 'hidden'}">
+              <i class="bi bi-heart-fill fs-5" style="color: red"></i>
+            </span>
             <div class="card-body" style="height:14rem">
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
                 <h5 class="card-title">${store.name}</h5>
-              </div>
-              <div class="col-lg-2">
-                <i class="bi bi-heart fs-5"></i>
               </div>
             </div>
               <p class="card-text mb-2">${stars}</p>
@@ -233,30 +238,45 @@ function displayStores() {
   })
 }
 
-
 function onStoreCardClick(id) {
-  $.getJSON('data/stores.json', function ({ data }) {
-    const storeId = id - 1
-    var stars = ``;
-    for (let i = 0; i < data[storeId].rating; i++) {
-      stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
-    }
-    $('#storeName').text(data[storeId].name)
-    $('#storeStars').html(stars)
-    $('#storeAddress').text(data[storeId].address)
-    $('#storeStatus').text(data[storeId].status)
-    $('#storeServices').text('')
-    data[storeId].services.map((service) => {
-      $('#storeServices').append(`<li>${serviceDescription[service]}</li>`)
-    })
-    $('#storePets').text(data[storeId].petTypes.join(', '))
-    $('#storePhone').text(data[storeId].phone)
-    $('#storeSite').attr("href", data[storeId].website)
-    $('#storeSite').text(data[storeId].website)
-    $('#carouselImg1').attr("src", data[storeId].image)
-    $('#carouselImg2').attr("src", data[storeId].image)
-    $('#carouselImg3').attr("src", data[storeId].image)
+  const data = storesData
+  const storeId = id - 1
+  var stars = ``;
+  for (let i = 0; i < data[storeId].rating; i++) {
+    stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+  }
+  $('#storeName').text(data[storeId].name)
+  $('#storeStars').html(stars)
+  $('#storeAddress').text(data[storeId].address)
+  $('#storeStatus').text(data[storeId].status)
+  $('#storeServices').text('')
+  data[storeId].services.map((service) => {
+    $('#storeServices').append(`<li>${serviceDescription[service]}</li>`)
   })
+  $('#storePets').text(data[storeId].petTypes.join(', '))
+  $('#storePhone').text(data[storeId].phone)
+  $('#storeSite').attr("href", data[storeId].website)
+  $('#storeSite').text(data[storeId].website)
+  $('#carouselImg1').attr("src", data[storeId].image)
+  $('#carouselImg2').attr("src", data[storeId].image)
+  $('#carouselImg3').attr("src", data[storeId].image)
+  favButtonText(storeId)
+}
+
+function favButtonText(id) {
+  $('.favorite-button').attr("id", `favorite-button-${id + 1}`)
+  if (storesData[id].favorite) {
+    $('.favorite-button').html('<span class="d-flex align-items-center" style="color:red"><i class="bi bi-heart-fill fs-5 me-2"></i>Remove from favorites</span>')
+  } else {
+    $('.favorite-button').html('<span class="d-flex align-items-center"><i class="bi bi-heart fs-5 me-2"></i>Add to favorites</span>')
+  }
+}
+
+function onFavoriteClick(id) {
+  const storeId = id.split('-')[2] - 1
+  storesData[storeId].favorite = !storesData[storeId].favorite
+  favButtonText(storeId)
+  displayStores()
 }
 
 function signInOut() {
