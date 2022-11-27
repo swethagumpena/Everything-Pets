@@ -36,7 +36,7 @@ $(function () {
                                 <span class="${hosp.status === 'Open' ? 'text-success' : 'text-danger'}">${hosp.status}</span>  |   ${hosp.status === 'Open' ? `Closes at ${hosp.closingTime}` : `Opens at ${hosp.openingTime}`}
                             </div>
                         </div>
-                        <div class="col-md-3 no-float align-self-center" style="text-align: center;">
+                        <div class="col-md-3 no-float align-self-center" style="text-align: center;  white-space: nowrap">
                             ${stars}
                         </div>
                     </div>
