@@ -12,8 +12,9 @@
 }
 
 .nav-item:hover a {
-  color: white;
+  color: black;
   transition: 0.1s;
+  font-weight: bold;
 }
 
 p {
