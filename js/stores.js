@@ -5,7 +5,7 @@ const serviceDescription = {
   Medicines: "Emergency and healthcare medicinies"
 }
 
-const storesData = [
+storesData = [
   {
     "id": 1,
     "name": "Olive Pet Store",
@@ -26,7 +26,8 @@ const storesData = [
     ],
     "phone": "+1(123) 456-7890",
     "website": "www.olivepetstore.com",
-    "favorite": false
+    "favorite": false,
+    "notes": "first store"
   },
   {
     "id": 2,
@@ -46,7 +47,8 @@ const storesData = [
     ],
     "phone": "+1(312) 896-7090",
     "website": "www.petco.com",
-    "favorite": true
+    "favorite": true,
+    "notes": "second store"
   },
   {
     "id": 3,
@@ -66,7 +68,8 @@ const storesData = [
     ],
     "phone": "+1(312) 896-7191",
     "website": "www.fujiadobe.com",
-    "favorite": false
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 4,
@@ -88,7 +91,8 @@ const storesData = [
     ],
     "phone": "+1(916) 796-0191",
     "website": "www.petland.com",
-    "favorite": false
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 5,
@@ -108,7 +112,8 @@ const storesData = [
     ],
     "phone": "+1(123) 816-7811",
     "website": "www.jamesonstores.com",
-    "favorite": true
+    "favorite": true,
+    "notes": ""
   }
 ]
 
@@ -203,8 +208,9 @@ function displayStores() {
               class="card-img-top"
               style="height:16rem"
             />
-            <span class="position-absolute translate-middle badge rounded-pill bg-light" style="top:4%;left:90%;visibility:${store.favorite ? 'visible' : 'hidden'}">
-              <i class="bi bi-heart-fill fs-5" style="color: red"></i>
+            <span class="position-absolute translate-middle badge rounded-pill bg-danger py-2" style="top:4%;left:80%;visibility:${store.favorite ? 'visible' : 'hidden'}">
+              <i class="bi bi-heart-fill me-1" style="font-size: 0.75rem"></i>
+              Favorited
             </span>
             <div class="card-body" style="height:14rem">
             <div class="row">
@@ -260,7 +266,22 @@ function onStoreCardClick(id) {
   $('#carouselImg1').attr("src", data[storeId].image)
   $('#carouselImg2').attr("src", data[storeId].image)
   $('#carouselImg3').attr("src", data[storeId].image)
+  $('#my-notes').val(data[storeId].notes)
   favButtonText(storeId)
+}
+
+function editNote() {
+  $('#my-notes').attr("disabled", false)
+  $('#my-notes').focus()
+  $('#edit-notes-button').hide()
+  $('#save-notes-button').show()
+
+}
+
+function saveNote() {
+  $('#my-notes').attr("disabled", true)
+  $('#save-notes-button').hide()
+  $('#edit-notes-button').show()
 }
 
 function favButtonText(id) {

@@ -179,8 +179,9 @@ function displayBoardings() {
               class="card-img-top"
               style="height:16rem"
             />
-            <span class="position-absolute translate-middle badge rounded-pill bg-light" style="top:4%;left:90%;visibility:${boarding.favorite ? 'visible' : 'hidden'}">
-              <i class="bi bi-heart-fill fs-5" style="color: red"></i>
+            <span class="position-absolute translate-middle badge rounded-pill bg-danger py-2" style="top:4%;left:80%;visibility:${boarding.favorite ? 'visible' : 'hidden'}">
+              <i class="bi bi-heart-fill me-1" style="font-size: 0.75rem"></i>
+              Favorited
             </span>
             <div class="card-body" style="height:14rem">
             <div class="row">
@@ -199,7 +200,7 @@ function displayBoardings() {
                   ${boarding.status}  |   ${boarding.status === 'Open' ? `Closes at ${boarding.closingTime}` : `Opens at ${boarding.openingTime}`}
                 </p>
                 <p class="boarding-location-of-services mb-2">
-                <span style="font-weight: 700;">Location of Service:&nbsp</span>
+                <span style="font-weight: 700;">Service:&nbsp</span>
                 ${boarding.locationOfService}
               </p>
                 <div class="d-flex align-items-center mt-2">

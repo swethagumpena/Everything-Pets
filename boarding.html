@@ -27,14 +27,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="./js/boarding.js"></script>
 
-  <body class="bg-light" style="overflow-x: hidden">
+  <body class="bg-light" style="overflow-x: hidden;">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f09e9e;">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
           <img
             src="./images/project icon 1.png"
-            style="height: 3rem"
+            style="height: 3rem;"
             class="ms-3"
             alt=""
           />
@@ -122,14 +122,14 @@
                   <h3
                     class="modal-title me-2 mb-3"
                     id="boardingName"
-                    style="display: inline-block"
+                    style="display: inline-block;"
                   >
                     Boarding Name
                   </h3>
                   <div
                     class="py-2"
                     id="boardingStars"
-                    style="display: inline-block"
+                    style="display: inline-block;"
                   ></div>
                   <div class="boarding-address mb-2 d-flex align-items-center">
                     <i class="bi bi-geo-alt me-2"></i>
@@ -149,7 +149,7 @@
                     </div>
                   </div>
                   <div class="boarding-location d-flex mb-2">
-                    <p class="fw-bold">Location of service:</p>
+                    <p class="fw-bold">Service:</p>
                     &nbsp;
                     <p id="boardingLocationOfService">Location</p>
                   </div>
@@ -204,7 +204,7 @@
                           class="d-block w-100"
                           alt="image1"
                           id="carouselImg1"
-                          style="height: 16rem"
+                          style="height: 16rem;"
                         />
                       </div>
                       <div class="carousel-item">
@@ -213,7 +213,7 @@
                           class="d-block w-100"
                           alt="image2"
                           id="carouselImg2"
-                          style="height: 16rem"
+                          style="height: 16rem;"
                         />
                       </div>
                       <div class="carousel-item">
@@ -222,7 +222,7 @@
                           class="d-block w-100"
                           alt="image3"
                           id="carouselImg3"
-                          style="height: 16rem"
+                          style="height: 16rem;"
                         />
                       </div>
                     </div>
@@ -253,7 +253,7 @@
                   </div>
                   <div class="form-outline">
                     <label class="form-label" for="textAreaExample">
-                      My notes
+                      <h6 class="mb-0">My Notes</h6>
                     </label>
                     <textarea
                       class="form-control"
@@ -262,15 +262,15 @@
                     ></textarea>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn border border-1 rounded favorite-button"
-                    onclick="onFavoriteClick(this.id)"
-                  >
-                    Favorites
-                  </button>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn border border-1 rounded favorite-button"
+                  onclick="onFavoriteClick(this.id)"
+                >
+                  Favorites
+                </button>
               </div>
             </div>
           </div>
@@ -278,18 +278,22 @@
       </div>
     </div>
 
-    
     <!-- Button to return to the top of page -->
     <div class="fixed-bottom d-flex justify-content-end m-2">
       <button
         type="button"
         class="btn btn-primary rounded-circle"
-        style="width: 3rem; height: 3rem; background-color: #f09e9e; border: none;"
+        style="
+          width: 3rem;
+          height: 3rem;
+          background-color: #f09e9e;
+          border: none;
+        "
         hidden="true"
         id="return-to-top"
         onclick="topFunction()"
       >
-      <i class="bi bi-chevron-double-up"></i>
+        <i class="bi bi-chevron-double-up"></i>
       </button>
     </div>
 

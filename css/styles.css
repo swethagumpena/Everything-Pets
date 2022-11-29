@@ -8,13 +8,11 @@
 
 .nav-item {
   font-size: 1.25rem;
-  transition: 0.1s;
 }
 
 .nav-item:hover a {
   color: black;
-  transition: 0.1s;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 p {
@@ -23,7 +21,10 @@ p {
 
 .store-address,
 .store-services,
-.boarding-address {
+.store-status,
+.boarding-address,
+.boarding-location-of-services,
+.boarding-status {
   -webkit-line-clamp: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -75,6 +76,11 @@ p {
 #reminders {
   height: 26rem;
   overflow-y: scroll;
+}
+
+.required:after {
+  content: ' *';
+  color: red;
 }
 
 .hospital-card:hover {
