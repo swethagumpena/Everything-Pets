@@ -27,7 +27,7 @@ storesData = [
     "phone": "+1(123) 456-7890",
     "website": "www.olivepetstore.com",
     "favorite": false,
-    "notes": "first store"
+    "notes": ""
   },
   {
     "id": 2,
@@ -48,7 +48,7 @@ storesData = [
     "phone": "+1(312) 896-7090",
     "website": "www.petco.com",
     "favorite": true,
-    "notes": "second store"
+    "notes": ""
   },
   {
     "id": 3,
