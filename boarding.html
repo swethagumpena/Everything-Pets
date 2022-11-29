@@ -252,13 +252,37 @@
                     </button>
                   </div>
                   <div class="form-outline">
-                    <label class="form-label" for="textAreaExample">
-                      <h6 class="mb-0">My Notes</h6>
-                    </label>
+                    <div class="row mb-2">
+                      <div class="col-lg-3 py-1">
+                        <label class="form-label" for="textAreaExample">
+                          <h6 class="mb-0">My Notes</h6>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 offset-lg-6">
+                        <button
+                          id="edit-notes-button"
+                          class="btn btn-sm btn-primary w-100"
+                          onclick="editNote()"
+                        >
+                          <i class="bi bi-pencil-square me-2"></i>
+                          Edit
+                        </button>
+                        <button
+                          id="save-notes-button"
+                          class="btn btn-sm btn-success w-100"
+                          onclick="saveNote()"
+                          style="display: none;"
+                        >
+                          <i class="bi bi-save me-2"></i>
+                          Save
+                        </button>
+                      </div>
+                    </div>
                     <textarea
                       class="form-control"
-                      id="textAreaExample1"
+                      id="my-notes"
                       rows="2"
+                      disabled
                     ></textarea>
                   </div>
                 </div>

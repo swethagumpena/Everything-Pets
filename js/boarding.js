@@ -15,7 +15,8 @@ const boardingsData = [
     "phone": "+1(123) 456-7890",
     "website": "www.marcusboarding.com",
     "locationOfService": "In-home",
-    "favorite": false
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 2,
@@ -32,7 +33,8 @@ const boardingsData = [
     "phone": "+1(312) 896-7090",
     "website": "www.petco.com",
     "locationOfService": "Outdoors",
-    "favorite": false
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 3,
@@ -49,7 +51,8 @@ const boardingsData = [
     "phone": "+1(312) 896-7191",
     "website": "www.galaboarding.com",
     "locationOfService": "In-home",
-    "favorite": true
+    "favorite": true,
+    "notes": ""
   },
   {
     "id": 4,
@@ -68,7 +71,8 @@ const boardingsData = [
     "phone": "+1(916) 796-0191",
     "website": "www.oliveadobe.com",
     "locationOfService": "In-home",
-    "favorite": false
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 5,
@@ -85,7 +89,8 @@ const boardingsData = [
     "phone": "+1(123) 816-7811",
     "website": "www.jonathonhomes.com",
     "locationOfService": "Outdoors",
-    "favorite": true
+    "favorite": true,
+    "notes": ""
   }
 ]
 
@@ -234,7 +239,22 @@ function onBoardingCardClick(id) {
   $('#carouselImg1').attr("src", data[boardingId].image)
   $('#carouselImg2').attr("src", data[boardingId].image)
   $('#carouselImg3').attr("src", data[boardingId].image)
+  $('#my-notes').val(data[boardingId].notes)
   favButtonText(boardingId)
+}
+
+function editNote() {
+  $('#my-notes').attr("disabled", false)
+  $('#my-notes').focus()
+  $('#edit-notes-button').hide()
+  $('#save-notes-button').show()
+
+}
+
+function saveNote() {
+  $('#my-notes').attr("disabled", true)
+  $('#save-notes-button').hide()
+  $('#edit-notes-button').show()
 }
 
 function favButtonText(id) {
