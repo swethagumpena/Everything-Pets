@@ -66,7 +66,7 @@
           </ul>
           <div
             id="sign-in"
-            class="btn btn-outline-light me-4"
+            class="btn btn-light me-4"
             data-mdb-ripple-color="dark"
             onclick="signInOut()"
           >
@@ -85,7 +85,17 @@
     <!-- Boarding Page code here -->
     <div class="d-flex">
       <div class="col-md-2 px-4 py-5 bg-white" id="boarding-filter-panel">
-        <h3>Filters</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="m-0">Filters</h3>
+          <input
+            type="button"
+            role="button"
+            value="Clear all"
+            id="filter-clear"
+            onClick="onClearAllClick();"
+            class="d-none btn btn-danger btn-sm"
+          />
+        </div>
         <div id="filter-data"></div>
       </div>
       <div class="col-md-10 right-pane p-4">
@@ -139,7 +149,7 @@
                     </div>
                   </div>
                   <div class="boarding-location d-flex mb-2">
-                    <p class="fw-bold">Location of service:</p>
+                    <p class="fw-bold">Service:</p>
                     &nbsp;
                     <p id="boardingLocationOfService">Location</p>
                   </div>
@@ -242,22 +252,73 @@
                     </button>
                   </div>
                   <div class="form-outline">
-                    <label class="form-label" for="textAreaExample">
-                      My notes
-                    </label>
-                    <i class="bi bi-pencil-square"></i>
+                    <div class="row mb-2">
+                      <div class="col-lg-3 py-1">
+                        <label class="form-label" for="textAreaExample">
+                          <h6 class="mb-0">My Notes</h6>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 offset-lg-6">
+                        <button
+                          id="edit-notes-button"
+                          class="btn btn-sm btn-primary w-100"
+                          onclick="editNote()"
+                        >
+                          <i class="bi bi-pencil-square me-2"></i>
+                          Edit
+                        </button>
+                        <button
+                          id="save-notes-button"
+                          class="btn btn-sm btn-success w-100"
+                          onclick="saveNote()"
+                          style="display: none;"
+                        >
+                          <i class="bi bi-save me-2"></i>
+                          Save
+                        </button>
+                      </div>
+                    </div>
                     <textarea
                       class="form-control"
-                      id="textAreaExample1"
+                      id="my-notes"
                       rows="2"
+                      disabled
                     ></textarea>
                   </div>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn border border-1 rounded favorite-button"
+                  onclick="onFavoriteClick(this.id)"
+                >
+                  Favorites
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Button to return to the top of page -->
+    <div class="fixed-bottom d-flex justify-content-end m-2">
+      <button
+        type="button"
+        class="btn btn-primary rounded-circle"
+        style="
+          width: 3rem;
+          height: 3rem;
+          background-color: #f09e9e;
+          border: none;
+        "
+        hidden="true"
+        id="return-to-top"
+        onclick="topFunction()"
+      >
+        <i class="bi bi-chevron-double-up"></i>
+      </button>
     </div>
 
     <!-- Bootstrap JS bundle -->

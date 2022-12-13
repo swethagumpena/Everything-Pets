@@ -1,38 +1,47 @@
 {
-    "data": [
+  "data": [
+    {
+      "title": "Pet type",
+      "data": [
         {
-            "title": "Pet type",
-            "data": [
-                {
-                    "id": 1,
-                    "value": "Dog"
-                },
-                {
-                    "id": 2,
-                    "value": "Cat"
-                },
-                {
-                    "id": 3,
-                    "value": "Bird"
-                },
-                {
-                    "id": 4,
-                    "value": "Fish"
-                }
-            ]
+          "id": 1,
+          "value": "Dog"
         },
         {
-            "title": "Location of service",
-            "data": [
-                {
-                    "id": 1,
-                    "value": "In-home"
-                },
-                {
-                    "id": 2,
-                    "value": "Outdoors"
-                }
-            ]
+          "id": 2,
+          "value": "Cat"
+        },
+        {
+          "id": 3,
+          "value": "Bird"
+        },
+        {
+          "id": 4,
+          "value": "Fish"
         }
-    ]
+      ]
+    },
+    {
+      "title": "Service",
+      "data": [
+        {
+          "id": 1,
+          "value": "In-home"
+        },
+        {
+          "id": 2,
+          "value": "Outdoors"
+        }
+      ]
+    },
+    {
+      "title": "Others",
+      "data": [
+        {
+          "id": 1,
+          "value": "Favorites"
+        }
+      ]
+    }
+  ]
 }

@@ -5,7 +5,7 @@ const serviceDescription = {
   Medicines: "Emergency and healthcare medicinies"
 }
 
-const storesData = [
+storesData = [
   {
     "id": 1,
     "name": "Olive Pet Store",
@@ -25,7 +25,9 @@ const storesData = [
       "Cat"
     ],
     "phone": "+1(123) 456-7890",
-    "website": "www.olivepetstore.com"
+    "website": "www.olivepetstore.com",
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 2,
@@ -44,7 +46,9 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7090",
-    "website": "www.petco.com"
+    "website": "www.petco.com",
+    "favorite": true,
+    "notes": ""
   },
   {
     "id": 3,
@@ -63,7 +67,9 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(312) 896-7191",
-    "website": "www.fujiadobe.com"
+    "website": "www.fujiadobe.com",
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 4,
@@ -84,7 +90,9 @@ const storesData = [
       "Fish"
     ],
     "phone": "+1(916) 796-0191",
-    "website": "www.petland.com"
+    "website": "www.petland.com",
+    "favorite": false,
+    "notes": ""
   },
   {
     "id": 5,
@@ -103,7 +111,9 @@ const storesData = [
       "Dog"
     ],
     "phone": "+1(123) 816-7811",
-    "website": "www.jamesonstores.com"
+    "website": "www.jamesonstores.com",
+    "favorite": true,
+    "notes": ""
   }
 ]
 
@@ -123,8 +133,10 @@ $(function () {
 
       $.each(category.data, function (i, categoryOption) {
         var option = document.createElement("div");
+        $(option).css("margin-top", "6px");
         var checkBox = document.createElement("input");
         $(checkBox).attr("type", "checkbox");
+        $(checkBox).attr("name", "option");
         $(checkBox).attr("value", categoryOption.value);
         $(checkBox).css("margin-right", "10px");
         $(checkBox).attr("id", 'store-filter-' + categoryOption.value);
@@ -140,14 +152,30 @@ $(function () {
         $(section).append(option)
       })
       $('#filter-data').append(section)
+      $('input[name="option"]').change(function () {
+        if ($('input[name="option"]:checked').length > 0) {
+          $("#filter-clear").removeClass("d-none");
+        } else {
+          $("#filter-clear").addClass("d-none");
+        }
+      });
     })
   });
 });
 
+function onClearAllClick() {
+  $('input[name="option"]').each(function () {
+    this.checked = false;
+  });
+  requiredStores = []
+  displayStores()
+  $("#filter-clear").addClass("d-none");
+}
+
 var selectedOptions = []
 
 function onFilterOptionClick(option) {
-  if ($(`#store-filter-${option}`).is(':checked')) {
+  if ($(`#store-filter-${option}`).is(":checked")) {
     selectedOptions.push(option)
   } else {
     var index = selectedOptions.indexOf(option);
@@ -157,7 +185,7 @@ function onFilterOptionClick(option) {
   }
   requiredStores = []
   storesData.forEach((store) => {
-    if (store.petTypes.some(r => selectedOptions.indexOf(r) >= 0) || store.services.some(r => selectedOptions.indexOf(r) >= 0)) {
+    if (store.petTypes.some(r => selectedOptions.indexOf(r) >= 0) || store.services.some(r => selectedOptions.indexOf(r) >= 0) || (selectedOptions.indexOf('Favorites') >= 0 && store.favorite)) {
       requiredStores.push(store)
     }
   })
@@ -180,13 +208,14 @@ function displayStores() {
               class="card-img-top"
               style="height:16rem"
             />
+            <span class="position-absolute translate-middle badge rounded-pill bg-danger py-2" style="top:4%;left:80%;visibility:${store.favorite ? 'visible' : 'hidden'}">
+              <i class="bi bi-heart-fill me-1" style="font-size: 0.75rem"></i>
+              Favorited
+            </span>
             <div class="card-body" style="height:14rem">
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
                 <h5 class="card-title">${store.name}</h5>
-              </div>
-              <div class="col-lg-2">
-                <i class="bi bi-heart fs-5"></i>
               </div>
             </div>
               <p class="card-text mb-2">${stars}</p>
@@ -215,30 +244,60 @@ function displayStores() {
   })
 }
 
-
 function onStoreCardClick(id) {
-  $.getJSON('data/stores.json', function ({ data }) {
-    const storeId = id - 1
-    var stars = ``;
-    for (let i = 0; i < data[storeId].rating; i++) {
-      stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
-    }
-    $('#storeName').text(data[storeId].name)
-    $('#storeStars').html(stars)
-    $('#storeAddress').text(data[storeId].address)
-    $('#storeStatus').text(data[storeId].status)
-    $('#storeServices').text('')
-    data[storeId].services.map((service) => {
-      $('#storeServices').append(`<li>${serviceDescription[service]}</li>`)
-    })
-    $('#storePets').text(data[storeId].petTypes.join(', '))
-    $('#storePhone').text(data[storeId].phone)
-    $('#storeSite').attr("href", data[storeId].website)
-    $('#storeSite').text(data[storeId].website)
-    $('#carouselImg1').attr("src", data[storeId].image)
-    $('#carouselImg2').attr("src", data[storeId].image)
-    $('#carouselImg3').attr("src", data[storeId].image)
+  const data = storesData
+  const storeId = id - 1
+  var stars = ``;
+  for (let i = 0; i < data[storeId].rating; i++) {
+    stars += `<i class="bi bi-star-fill" style="color: #F1C644;"></i>&nbsp`;
+  }
+  $('#storeName').text(data[storeId].name)
+  $('#storeStars').html(stars)
+  $('#storeAddress').text(data[storeId].address)
+  $('#storeStatus').text(data[storeId].status)
+  $('#storeServices').text('')
+  data[storeId].services.map((service) => {
+    $('#storeServices').append(`<li>${serviceDescription[service]}</li>`)
   })
+  $('#storePets').text(data[storeId].petTypes.join(', '))
+  $('#storePhone').text(data[storeId].phone)
+  $('#storeSite').attr("href", data[storeId].website)
+  $('#storeSite').text(data[storeId].website)
+  $('#carouselImg1').attr("src", data[storeId].image)
+  $('#carouselImg2').attr("src", data[storeId].image)
+  $('#carouselImg3').attr("src", data[storeId].image)
+  $('#my-notes').val(data[storeId].notes)
+  favButtonText(storeId)
+}
+
+function editNote() {
+  $('#my-notes').attr("disabled", false)
+  $('#my-notes').focus()
+  $('#edit-notes-button').hide()
+  $('#save-notes-button').show()
+
+}
+
+function saveNote() {
+  $('#my-notes').attr("disabled", true)
+  $('#save-notes-button').hide()
+  $('#edit-notes-button').show()
+}
+
+function favButtonText(id) {
+  $('.favorite-button').attr("id", `favorite-button-${id + 1}`)
+  if (storesData[id].favorite) {
+    $('.favorite-button').html('<span class="d-flex align-items-center" style="color:red"><i class="bi bi-heart-fill fs-5 me-2"></i>Remove from favorites</span>')
+  } else {
+    $('.favorite-button').html('<span class="d-flex align-items-center"><i class="bi bi-heart fs-5 me-2"></i>Add to favorites</span>')
+  }
+}
+
+function onFavoriteClick(id) {
+  const storeId = id.split('-')[2] - 1
+  storesData[storeId].favorite = !storesData[storeId].favorite
+  favButtonText(storeId)
+  displayStores()
 }
 
 function signInOut() {
@@ -249,3 +308,23 @@ function signInOut() {
     $("#sign-in").text('Sign in');
   }
 }
+
+// Function to scroll to top
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// On scroll show the button
+window.onscroll = function () {
+  // Get the button to scroll to the top
+  var topbutton = document.getElementById("return-to-top");
+  // When the user scrolls down 20px from the top of the document, show the button
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    topbutton.hidden = false;
+  }
+  // Otherwise, hide the button
+  else {
+    topbutton.hidden = true;
+  }
+};

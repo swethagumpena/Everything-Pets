@@ -36,8 +36,8 @@ $('#add-reminder-button').on('click', e => {
 
     console.log(reminder);
 
-    if (reminder.title == '' || reminder.address == '' || reminder.start == '' || reminder.description == '') {
-        $('#form-error').text("Please fill in all the fields")
+    if (reminder.title == '' || reminder.address == '' || reminder.start == '') {
+        $('#form-error').text("Please fill in the title, address and date")
         return
     }
     else {
