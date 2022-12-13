@@ -1,5 +1,7 @@
 # Everything-Pets
 
+(As part of CS 422 - User Interface Design and Programming)
+
 Live @ https://swethagumpena.github.io/Everything-Pets/index.html
 
 1. Analysis
